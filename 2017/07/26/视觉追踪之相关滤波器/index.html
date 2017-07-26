@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/def.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/mb.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/label.jpg">
-<meta property="og:updated_time" content="2017-07-26T17:02:44.546Z">
+<meta property="og:updated_time" content="2017-07-26T17:05:17.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视觉追踪之相关滤波器">
 <meta name="twitter:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y_{n\times 1}$ , $\hat{y}_{n\times 1}$     字母大写加粗是矩阵：eg. $\textbf{Y}_{m\times n}$ , $\hat{\textbf{Y}}_{m\times n}$   字母不戴帽子表示空域：eg. $y_{n\times">
@@ -378,7 +378,7 @@
 <p>$$<br>\begin{aligned}<br>y^T(0) &amp; =[h_0,h_1,h_2,h_3,h_4][x_0,x_4,x_3,x_2,x_1]^T=1 \\<br>y^T(1) &amp; =[h_0,h_1,h_2,h_3,h_4][x_1,x_0,x_4,x_3,x_2]^T=0.5 \\<br>y^T(2) &amp; =[h_0,h_1,h_2,h_3,h_4][x_2,x_1,x_0,x_4,x_3]^T=0.1 \\<br>y^T(3) &amp; =[h_0,h_1,h_2,h_3,h_4][x_3,x_2,x_1,x_0,x_4]^T=0.1 \\<br>y^T(4) &amp; =[h_0,h_1,h_2,h_3,h_4][x_4,x_3,x_2,x_1,x_0]^T=0.5<br>\end{aligned}<br>$$  </p>
 <p><strong>此时</strong>，我们引入一个新的输入$x_*^T=[x_4,x_0,x_1,x_2,x_3]$,那么它与卷积模板的输出值是:  </p>
 <p>$$<br>\begin{aligned}<br>g^T(0) &amp; =[h_0,h_1,h_2,h_3,h_4][x_4,x_3,x_2,x_1,x_0]^T=0.5=y^T(4) \\<br>g^T(1) &amp; =[h_0,h_1,h_2,h_3,h_4][x_0,x_4,x_3,x_2,x_1]^T=1=y^T(0) \\<br>g^T(2) &amp; =[h_0,h_1,h_2,h_3,h_4][x_1,x_0,x_4,x_3,x_2]^T=0.5=y^T(1) \\<br>g^T(3) &amp; =[h_0,h_1,h_2,h_3,h_4][x_2,x_1,x_0,x_4,x_3]^T=0.1=y^T(2) \\<br>g^T(4) &amp; =[h_0,h_1,h_2,h_3,h_4][x_3,x_2,x_1,x_0,x_4]^T=0.1=y^T(3)<br>\end{aligned}<br>$$  </p>
-<p>发现规律了吗，加入我么按照前面的公式去训练一个卷积模板，那么新来一个输入值，而且这个输入值相对训练值是其右循环移动一位，那么经过卷积模板循环卷积之后的输出值，对应最大值的位置也向右移动一位。我们可以通过判断最大值的位置来确定该时刻输入值相对于上一时刻输入值的唯一变化。我们把这个过程拓展到图像这个二维空间，并迭代这个过程就实现了物体追踪。继续观察式子，我们发现原来一个训练样本，被这种数据增强手段扩充了<strong>5*倍，还记得我开头说过的话吗，训练数据的匮乏导致在追踪过程中更新一个有效的自适应的分类器会显得异常困难，你必须非常精巧的设计一种采样手段才能破解这个问题。但是按照相关滤波的这种训练方式，利用上下左右的循环移位大大扩充了我们的训练样本，从本质上说相关滤波是在训练一个</strong>回归方程**；第二个优点发现了没，我想你肯定猜到了，就是把这个空域信号转换的时域计算的话，速度上会有一个质的飞越(配合快速傅里叶变换)。请谨记这两个优点，可以仔细想想为什么！下面给出一张对应二维的输出值定义曲面图:  </p>
+<p>发现规律了吗，加入我么按照前面的公式去训练一个卷积模板，那么新来一个输入值，而且这个输入值相对训练值是其右循环移动一位，那么经过卷积模板循环卷积之后的输出值，对应最大值的位置也向右移动一位。我们可以通过判断最大值的位置来确定该时刻输入值相对于上一时刻输入值的唯一变化。我们把这个过程拓展到图像这个二维空间，并迭代这个过程就实现了物体追踪。继续观察式子，我们发现原来一个训练样本，被这种数据增强手段扩充了<strong>5</strong>倍，还记得我开头说过的话吗，训练数据的匮乏导致在追踪过程中更新一个有效的自适应的分类器会显得异常困难，你必须非常精巧的设计一种采样手段才能破解这个问题。但是按照相关滤波的这种训练方式，利用上下左右的循环移位大大扩充了我们的训练样本，从本质上说相关滤波是在训练一个<strong>回归方程</strong>；第二个优点发现了没，我想你肯定猜到了，就是把这个空域信号转换的时域计算的话，速度上会有一个质的飞越(配合快速傅里叶变换)。请谨记这两个优点，可以仔细想想为什么！下面给出一张对应二维的输出值定义曲面图:  </p>
 <p><img src="/images/cf-img/label.jpg" alt="md"></p>
 <p>&emsp;&emsp;<strong>CF相关滤波器</strong> 还存在另外一种表达方式。这种表达方式本作者第一次见是在<a href="http://www.robots.ox.ac.uk/~joao/publications/henriques_tpami2015.pdf" target="_blank" rel="external">KCF</a>一文中，作者直接在空域点明了这种利用循环位移结构增加训练数据的方法，本笔记参考原作者的讲解方式，从一维空间来解释这种表达方式，假设我们的元数据(_<strong>base sample</strong>_)为: $x_b=[x_0,x_1,x_2,x_3,x_4,x_5]$,那么根据循环位移特性最终会有$n$个训练样本，具体用矩阵$\textbf{X}$表示如下:  </p>
 <p>$$<br>\textbf{X}=\begin{bmatrix}<br>    x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5  \\<br>    x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4  \\<br>    x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3  \\<br>    x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2  \\<br>    x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1  \\<br>    x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0<br>    \end{bmatrix}<br>$$  </p>
