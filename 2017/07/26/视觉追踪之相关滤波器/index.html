@@ -93,22 +93,22 @@
 
 
 
-<meta name="description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1},\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n},\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散傅里叶域">
+<meta name="description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}\, \hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}\, \hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散">
 <meta property="og:type" content="article">
 <meta property="og:title" content="视觉追踪之相关滤波器">
 <meta property="og:url" content="https://singingkettle.github.io/2017/07/26/视觉追踪之相关滤波器/index.html">
 <meta property="og:site_name" content="且听风吟">
-<meta property="og:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1},\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n},\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散傅里叶域">
+<meta property="og:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}\, \hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}\, \hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/iv.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/sv.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/occ.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/def.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/mb.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/label.jpg">
-<meta property="og:updated_time" content="2017-07-26T14:59:51.734Z">
+<meta property="og:updated_time" content="2017-07-26T15:06:12.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视觉追踪之相关滤波器">
-<meta name="twitter:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1},\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n},\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散傅里叶域">
+<meta name="twitter:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}\, \hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}\, \hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示离散">
 <meta name="twitter:image" content="https://singingkettle.github.io/images/cf-img/iv.jpg">
 
 
@@ -353,8 +353,8 @@
 <li><a href="#end">结语</a></li>
 </ul>
 <h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><ol>
-<li>小写字母表示一个列向量：eg. $y<em>{n\times 1},\hat{y}</em>{n\times 1}$</li>
-<li>字母大写加粗是矩阵：eg. $\textbf{Y}<em>{m\times n},\hat{\textbf{Y}}</em>{m\times n}$</li>
+<li>小写字母表示一个列向量：eg. $y<em>{n\times 1}\, \hat{y}</em>{n\times 1}$</li>
+<li>字母大写加粗是矩阵：eg. $\textbf{Y}<em>{m\times n}\, \hat{\textbf{Y}}</em>{m\times n}$</li>
 <li>字母不戴帽子表示空域：eg. $y_{n\times 1}$</li>
 <li>字母带帽子表示离散傅里叶域：eg. $\hat{y}$</li>
 <li>该字母代表哈达玛乘积：eg. $\bigodot$</li>
