@@ -93,22 +93,22 @@
 
 
 
-<meta name="description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$, $\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}%, $\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示">
+<meta name="description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$ , $\hat{y}{n\times 1}$     字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}% , $\hat{\textbf{Y}}{m\times n}$   字母不戴帽子表示空域：eg. $y_{n\times 1}$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="视觉追踪之相关滤波器">
 <meta property="og:url" content="https://singingkettle.github.io/2017/07/26/视觉追踪之相关滤波器/index.html">
 <meta property="og:site_name" content="且听风吟">
-<meta property="og:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$, $\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}%, $\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示">
+<meta property="og:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$ , $\hat{y}{n\times 1}$     字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}% , $\hat{\textbf{Y}}{m\times n}$   字母不戴帽子表示空域：eg. $y_{n\times 1}$">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/iv.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/sv.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/occ.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/def.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/mb.jpg">
 <meta property="og:image" content="https://singingkettle.github.io/images/cf-img/label.jpg">
-<meta property="og:updated_time" content="2017-07-26T15:12:19.567Z">
+<meta property="og:updated_time" content="2017-07-26T16:16:00.740Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视觉追踪之相关滤波器">
-<meta name="twitter:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$, $\hat{y}{n\times 1}$ 字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}%, $\hat{\textbf{Y}}{m\times n}$ 字母不戴帽子表示空域：eg. $y_{n\times 1}$ 字母带帽子表示">
+<meta name="twitter:description" content="目录 前言 追踪存在的难点 相关滤波器在视觉追踪中的初始应用 结语  符号定义 小写字母表示一个列向量：eg. $y{n\times 1}$ , $\hat{y}{n\times 1}$     字母大写加粗是矩阵：eg. $\textbf{Y}{m\times n}% , $\hat{\textbf{Y}}{m\times n}$   字母不戴帽子表示空域：eg. $y_{n\times 1}$">
 <meta name="twitter:image" content="https://singingkettle.github.io/images/cf-img/iv.jpg">
 
 
@@ -353,12 +353,12 @@
 <li><a href="#end">结语</a></li>
 </ul>
 <h3 id="符号定义"><a href="#符号定义" class="headerlink" title="符号定义"></a>符号定义</h3><ol>
-<li>小写字母表示一个列向量：eg. $y<em>{n\times 1}$, $\hat{y}</em>{n\times 1}$</li>
-<li>字母大写加粗是矩阵：eg. $\textbf{Y}<em>{m\times n}%, $\hat{\textbf{Y}}</em>{m\times n}$</li>
-<li>字母不戴帽子表示空域：eg. $y_{n\times 1}$</li>
-<li>字母带帽子表示离散傅里叶域：eg. $\hat{y}$</li>
-<li>该字母代表哈达玛乘积：eg. $\bigodot$</li>
-<li>该字母代表离散序列的循环卷积：eg. $\bigotimes$</li>
+<li>小写字母表示一个列向量：eg. $y<em>{n\times 1}$ , $\hat{y}</em>{n\times 1}$    </li>
+<li>字母大写加粗是矩阵：eg. $\textbf{Y}<em>{m\times n}% , $\hat{\textbf{Y}}</em>{m\times n}$  </li>
+<li>字母不戴帽子表示空域：eg. $y_{n\times 1}$  </li>
+<li>字母带帽子表示离散傅里叶域：eg. $\hat{y}$  </li>
+<li>该字母代表哈达玛乘积：eg. $\bigodot$  </li>
+<li>该字母代表离散序列的循环卷积：eg. $\bigotimes$  </li>
 </ol>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><span id="list">前言</span></h3><p>&emsp;&emsp;在目前的单目标图像追踪领域，相关滤波器(correlation filter, 以后统称为CF)以她优美简洁的形式和“变态”的性能征服了一票做视觉追踪的研究者。如果你的研究方向是图像追踪的话，CF你是不得不面对的！作者由于本人最近一直比较关注这个方向，特意阅读了大量的基于CF的论文！CF的变种纷繁复杂，对于初入门的同学来说，第一步直接阅读最近发表的基于CF的论文，相对来说会比较吃力！而且在这个过程中很难体会到CF在应用于图像追踪的过程中，体现出来的最根本的优点！基于此种考虑同时为了总结前段时间的学习成果，遂一笔记形式梳理了整个CF的发展链条！本人在叙述的过程中仅仅参考了我认为比较重要的几篇文章，不过为了满足读者的学习需求，在本文的最后会给出一个列表，这个列表是我认为非常值得一看的基于CF的论文。由于本人水平有限，文中难免出现一些问题！如果您发现了，务必联系我(本人的联系信息在文末)！<br>&emsp;&emsp;整个文章的讲解顺序，是按照层层递进的形式书写的，从刚开始的简单的应用到后面加各种复杂的trick！中间会穿插一些内容，和本人的一些感悟！好，那我们开始吧！另外提醒读者注意的一点是：在接下来的内容中，如果不加说明的话，追踪一律指的是单目标图像追踪！</p>
 <h3 id="追踪存在的难点"><a href="#追踪存在的难点" class="headerlink" title="追踪存在的难点"></a><span id="issue">追踪存在的难点</span></h3><p>&emsp;&emsp;在回答追踪任务存在那些难点这一问题之前，我先说明一下“单目标视觉追踪”这个概念。单目标视觉追踪指的是：在给出所关注的目标物的第一帧位置信息后，设计预测算法来标定出该目标物在接下来的视频帧序列中出现的位置，通常位置以矩形框的形式进行表示！那么你可能会很自然的想到追踪过程存在的一些难点！针对这些难点，追踪论文中普遍会刷的公开数据集<a href="http://cvlab.hanyang.ac.kr/tracker_benchmark/index.html" target="_blank" rel="external">OTB</a>,已经将这些可能存在的难点分为十一个方面！不过公开的数据集不止这一个，不过对于追踪存在的挑战，大家的认识并不存在很大的不同，为了叙述方便我们就拿OTB来做这个例子了！<br>&emsp;&emsp;根据OTB的官方文档，视觉追踪任务面临以下11个方面的挑战:</p>
@@ -381,7 +381,7 @@
 <p>发现规律了吗，加入我么按照前面的公式去训练一个卷积模板，那么新来一个输入值，而且这个输入值相对训练值是其右循环移动一位，那么经过卷积模板循环卷积之后的输出值，对应最大值的位置也向右移动一位。我们可以通过判断最大值的位置来确定该时刻输入值相对于上一时刻输入值的唯一变化。我们把这个过程拓展到图像这个二维空间，并迭代这个过程就实现了物体追踪。继续观察式子，我们发现原来一个训练样本，被这种数据增强手段扩充了<strong>5*倍，还记得我开头说过的话吗，训练数据的匮乏导致在追踪过程中更新一个有效的自适应的分类器会显得异常困难，你必须非常精巧的设计一种采样手段才能破解这个问题。但是按照相关滤波的这种训练方式，利用上下左右的循环移位大大扩充了我们的训练样本，从本质上说相关滤波是在训练一个</strong>回归方程**；第二个优点发现了没，我想你肯定猜到了，就是把这个空域信号转换的时域计算的话，速度上会有一个质的飞越(配合快速傅里叶变换)。请谨记这两个优点，可以仔细想想为什么！下面给出一张对应二维的输出值定义曲面图:  </p>
 <p><img src="/images/cf-img/label.jpg" alt="md"></p>
 <p>&emsp;&emsp;<strong>CF相关滤波器</strong> 还存在另外一种表达方式。这种表达方式本作者第一次见是在<a href="http://www.robots.ox.ac.uk/~joao/publications/henriques_tpami2015.pdf" target="_blank" rel="external">KCF</a>一文中，作者直接在空域点明了这种利用循环位移结构增加训练数据的方法，本笔记参考原作者的讲解方式，从一维空间来解释这种表达方式，假设我们的元数据(<em><strong>base sample</strong></em>)为: $x_b=[x_0,x_1,x_2,x_3,x_4,x_5]$,那么根据循环位移特性最终会有$n$个训练样本，具体用矩阵$\textbf{X}$表示如下:  </p>
-<p>$$<br>\textbf{X}=\begin{bmatrix}<br>    x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 \<br>    x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 \<br>    x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3 \<br>    x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2 \<br>    x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1 \<br>    x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0<br>    \end{bmatrix}<br>$$  </p>
+<p>$$<br>\textbf{X}=\begin{bmatrix}<br>    x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5  \<br>    x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3 &amp; x_4  \<br>    x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2 &amp; x_3  \<br>    x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1 &amp; x_2  \<br>    x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0 &amp; x_1  \<br>    x_1 &amp; x_2 &amp; x_3 &amp; x_4 &amp; x_5 &amp; x_0<br>    \end{bmatrix}<br>$$  </p>
 <p>对应label的设置依据每一个循环移位样本情况决定，可得到我们最终期望的输出值$y$.根据KCF一文，最终lossfunction的定义如下：<br>$$<br>L=\sum_i|Wx_i-y_i|_2^2 + \lambda|W|_2^2<br>$$<br>由<a href="https://en.wikipedia.org/wiki/Circulant_matrix" target="_blank" rel="external">循环位移的性质</a>可知:<br>$$<br>\textbf{X}=Fdiag(\hat{x_b})F^H<br>$$<br>详细的推导过程请参考KCF。请和咱前面提到的循环卷积进行区分，虽然表现形式不一样，但他们的内核是一样的。只是表示方式不同！都利用了DFT加速计算，且利用循环位移的性质增加训练样本！  </p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><span id="end">结语</span></h3><p>相关滤波器的变种有很多，但后续的改动主要基于的还是前面提到的一些公式！虽然CF的各种变种在各类的benchmark的表现是很爆炸的，但是目前的趋势是不停的加各种各样的trick，对于准备做tracking工作的童鞋来说，接着在这个方向做出一个漂亮的工作是很不易的，另外对于CF的缺点本人并没有看到有专门的论文去仔细降这一块的内容，不管是从实验结果还是从CF本身自身的缺陷方面。但同时我们注意到多目标的实时追踪并没有像单目标追踪领域这样蓬勃的发展。目前已出版的多目标领域的文章更多是在做一种事后分析，内心感觉离追踪的初衷相去甚远，且两个领域的发展思想并没有什么交集！从本人来看多目标相对老说更有挑战性，希望在未来能看到多目标追踪领域的”<strong>CF</strong>“！</p>
 
